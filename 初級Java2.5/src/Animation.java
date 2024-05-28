@@ -2,40 +2,20 @@
 public class Animation extends MyFrame{
 	public void run() {
 		//ctrl+shift+Fでインデントをそろえる
-		int y=100;
-		int x=30;
-		int z=200;
+		double y=0;
+		double x=0;
+		float count=0;
 		while(true) {
-			while(x<=170) {
-				clear();
-				setColor(0,128,0);
-				fillRect(x,y,10,100);
-				x+=5;
-				sleep(0.1);
+			clear();
+			setColor(0,128,0);
+			fillRect(200+x*100,100+y*200,30,30);
+			x=Math.sin(count);
+			y=Math.cos(count);
+			if(y<0) {
+				y*=-1;
 			}
-			while(y<=z) {
-				clear();
-				setColor(0,128,0);
-				fillRect(x,y,10,100);
-				y+=5;
-				sleep(0.1);
-			}
-			z+=100;
-			while(x>=30) {
-				clear();
-				setColor(0,128,0);
-				fillRect(x,y,10,100);
-				x-=5;
-				sleep(0.1);
-			}
-			while(y<=z) {
-				clear();
-				setColor(0,128,0);
-				fillRect(x,y,10,100);
-				y+=5;
-				sleep(0.1);
-			}
-			z+=100;
+			count+=10*Math.PI/180;
+			sleep(0.05);
 		}
 	}
 
